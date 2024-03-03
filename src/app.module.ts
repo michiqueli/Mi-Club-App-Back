@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MailerModule } from '@nestjs-modules/mailer';
-
 import { dataSourceOptions } from './config/database/database.config';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
 import { SociosModule } from './modules/socios/socios.module';
