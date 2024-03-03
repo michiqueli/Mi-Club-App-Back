@@ -18,7 +18,7 @@ export const dataSourceOptions: DataSourceOptions = {
         host: process.env.DB_HOST,
         port: +process.env.DB_PORT,
         entities: [Usuario, Role, Socio],
-        //ssl: true,
+        ssl: true,
         synchronize: true,
 }
 
