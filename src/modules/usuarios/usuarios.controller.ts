@@ -1,11 +1,13 @@
-import { Controller, Get, Body, Patch, Param, Delete, ParseUUIDPipe } from '@nestjs/common';
+import { Controller, Get, Body, Patch, Param, Delete, ParseUUIDPipe, UseFilters } from '@nestjs/common';
 import { UsuariosService } from './usuarios.service';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { VERSION } from 'src/common/constants';
 import { ApiTags } from '@nestjs/swagger';
+import { AllExceptionFilter } from 'src/common/filters/exception.filter';
 
 
 @ApiTags('Usuarios')
+@UseFilters(AllExceptionFilter)
 @Controller(`api/${VERSION}/usuarios`)
 export class UsuariosController {
   constructor(private readonly usuariosService: UsuariosService) {}
