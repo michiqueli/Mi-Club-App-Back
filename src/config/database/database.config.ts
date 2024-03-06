@@ -12,10 +12,10 @@ ConfigModule.forRoot({
 
 export const dataSourceOptions: DataSourceOptions = {
         type: 'postgres',
-        database: process.env.DB_NAME,
-        username: process.env.DB_USER,
-        password: process.env.DB_PASS,
-        host: process.env.DB_HOST,
+        database: process.env.POSTGRES_DATABASE,
+        username: process.env.POSTGRES_USER,
+        password: process.env.POSTGRES_PASSWORD,
+        host: process.env.POSTGRES_HOST,
         port: +process.env.DB_PORT,
         entities: [Usuario, Socio, Role],
         ssl: true,
