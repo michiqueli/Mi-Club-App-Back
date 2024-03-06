@@ -1,6 +1,6 @@
 import { BaseEntity } from "../../../common/entity/baseEntity";
 import { Usuario } from "../../../modules/usuarios/entities/usuario.entity";
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 
 @Entity('socios')
@@ -11,6 +11,9 @@ export class Socio extends BaseEntity{
 
     @Column({unique: true})
     dni: string
+
+    @Column({unique: true})
+    number: number
 
     @Column()
     name: string
