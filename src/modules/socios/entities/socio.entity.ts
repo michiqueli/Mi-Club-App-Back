@@ -1,5 +1,5 @@
-import { BaseEntity } from "src/common/entity/baseEntity";
-import { Usuario } from "src/modules/usuarios/entities/usuario.entity";
+import { BaseEntity } from "../../../common/entity/baseEntity";
+import { Usuario } from "../../../modules/usuarios/entities/usuario.entity";
 import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 

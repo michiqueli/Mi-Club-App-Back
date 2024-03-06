@@ -6,7 +6,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Usuario } from './entities/usuario.entity';
 import { Repository } from 'typeorm';
 import { EmailService } from '../mailer/mailer.service';
-import { ERole } from 'src/common/enums/role.enum';
+import { ERole } from '../../common/enums/role.enum';
 import { Socio } from '../socios/entities/socio.entity';
 
 @Injectable()

@@ -1,6 +1,6 @@
-import { BaseEntity } from "src/common/entity/baseEntity";
-import { Role } from "src/modules/auth/entities/role.entity";
-import { Socio } from "src/modules/socios/entities/socio.entity";
+import { BaseEntity } from "../../../common/entity/baseEntity";
+import { Role } from "../../../modules/auth/entities/role.entity";
+import { Socio } from "../../../modules/socios/entities/socio.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 

@@ -3,10 +3,10 @@ import { Response,  } from 'express';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
-import { GoogleAuthGuard } from 'src/common/guards/google.guard';
-import { AllExceptionFilter } from 'src/common/filters/exception.filter';
+import { GoogleAuthGuard } from '../../common/guards/google.guard';
+import { AllExceptionFilter } from '../../common/filters/exception.filter';
 import { ApiTags } from '@nestjs/swagger';
-import { VERSION } from 'src/common/constants';
+import { VERSION } from '../../common/constants';
 
 @ApiTags('Auth')
 @UseFilters(AllExceptionFilter)
