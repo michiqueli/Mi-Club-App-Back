@@ -9,7 +9,7 @@ import { UsuariosService } from '../usuarios/usuarios.service';
 import { Usuario } from '../usuarios/entities/usuario.entity';
 import { PassportModule } from '@nestjs/passport';
 import { EmailService } from '../mailer/mailer.service';
-import { jwtModuleOptions } from 'src/config/jwt/jwt.config';
+import { jwtModuleOptions } from '../../config/jwt/jwt.config';
 import { Socio } from '../socios/entities/socio.entity';
 
 @Module({

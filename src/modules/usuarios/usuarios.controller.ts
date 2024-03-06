@@ -1,9 +1,9 @@
 import { Controller, Get, Body, Patch, Param, Delete, ParseUUIDPipe, UseFilters } from '@nestjs/common';
 import { UsuariosService } from './usuarios.service';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
-import { VERSION } from 'src/common/constants';
+import { VERSION } from '../../common/constants';
 import { ApiTags } from '@nestjs/swagger';
-import { AllExceptionFilter } from 'src/common/filters/exception.filter';
+import { AllExceptionFilter } from '../../common/filters/exception.filter';
 
 
 @ApiTags('Usuarios')
