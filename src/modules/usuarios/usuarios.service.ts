@@ -27,6 +27,7 @@ export class UsuariosService {
       name: registerDto.name,
       last_name: registerDto.last_name,
       dni: registerDto.dni,
+      number: registerDto.number,
       dob: registerDto.dob,
       address: registerDto.address,
       phone: registerDto.phone,
