@@ -11,15 +11,16 @@ import { Socio } from '../socios/entities/socio.entity';
 
 @Injectable()
 export class UsuariosService {
-  @InjectRepository(Usuario) private readonly usuarioRepository: Repository<Usuario>;
-  @InjectRepository(Socio) private readonly socioRepository: Repository<Socio>
+  @InjectRepository(Usuario)
+  private readonly usuarioRepository: Repository<Usuario>;
+  @InjectRepository(Socio) private readonly socioRepository: Repository<Socio>;
   @Inject('EMAIL_SERVICE') private readonly emailService: EmailService;
 
   async create(registerDto: RegisterDto) {
     let hashedPassword: string;
 
     if (registerDto?.password) {
-        hashedPassword = await bcrypt.hash(registerDto.password, 10);
+      hashedPassword = await bcrypt.hash(registerDto.password, 10);
     }
 
     const socio = this.socioRepository.create({
@@ -35,10 +36,10 @@ export class UsuariosService {
     const socioCreated = await this.socioRepository.save(socio);
 
     const user = this.usuarioRepository.create({
-        email: registerDto.email,
-        password: hashedPassword,
-        role: registerDto.role || ERole.SOCIO,
-        socio: socioCreated
+      email: registerDto.email,
+      password: hashedPassword,
+      role: registerDto.role || ERole.SOCIO,
+      socio: socioCreated,
     });
     const userCreated = await this.usuarioRepository.save(user);
 
@@ -52,9 +53,16 @@ export class UsuariosService {
   }
 
   async findOne(id: string) {
-    
-    const user = await this.usuarioRepository.find({ where: { id }, relations: ["socio"] });
-    return user.length > 0 ? user[0] : null;
+    const user = await this.usuarioRepository.find({
+      where: { id },
+      relations: ['socio'],
+    });
+
+    if (user.length > 0) {
+      return { user: user[0] };
+    } else {
+      return null;
+    }
   }
 
   async update(id: string, updateUsuarioDto: UpdateUsuarioDto) {
@@ -65,11 +73,14 @@ export class UsuariosService {
     }
     Object.assign(user, updateUsuarioDto);
     await this.usuarioRepository.save(user);
-    return `El usuario ${user.email} ha sido actualizado con éxito`;;
+    return `El usuario ${user.email} ha sido actualizado con éxito`;
   }
 
   async remove(id: string) {
-    const user = await this.usuarioRepository.find({ where: { id }, relations: ["socio"] });
+    const user = await this.usuarioRepository.find({
+      where: { id },
+      relations: ['socio'],
+    });
     await this.usuarioRepository.softDelete(id);
     this.emailService.offLineEmail(user[0].socio.name, user[0].email);
     return `el Usuario de ${id} Esta Fuera de Linea`;
@@ -77,7 +88,10 @@ export class UsuariosService {
 
   async restore(id: string) {
     await this.usuarioRepository.restore(id);
-    const user = await this.usuarioRepository.find({ where: { id }, relations: ["socio"] });
+    const user = await this.usuarioRepository.find({
+      where: { id },
+      relations: ['socio'],
+    });
     this.emailService.onLineEmail(user[0].socio.name, user[0].email);
     return `el Usuario de ${id} Esta de nuevo En Linea`;
   }

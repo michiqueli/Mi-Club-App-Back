@@ -12,6 +12,9 @@ export class Socio extends BaseEntity{
     @Column({unique: true})
     dni: string
 
+    @Column({unique: true})
+    number: number
+
     @Column()
     name: string
 
