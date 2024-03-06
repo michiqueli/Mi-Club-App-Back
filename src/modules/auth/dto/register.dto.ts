@@ -26,7 +26,7 @@ export class RegisterDto {
 
     @ApiProperty()
     @IsNotEmpty()
-    @IsString()
+    @IsNumber()
     number: number
 
     @ApiProperty()
