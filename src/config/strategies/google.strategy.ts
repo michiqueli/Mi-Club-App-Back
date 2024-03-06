@@ -29,6 +29,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy) {
             name: profile._json.given_name,
             last_name: profile._json.family_name,
             password: null,
+            number: null,
             dni: null,
             dob: null,
             phone: null
