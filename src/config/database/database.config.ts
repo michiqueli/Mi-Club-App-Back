@@ -1,6 +1,7 @@
 import { ConfigModule } from '@nestjs/config';
-import { Socio } from 'src/modules/socios/entities/socio.entity';
-import { Usuario } from 'src/modules/usuarios/entities/usuario.entity';
+import { Socio } from '../../modules/socios/entities/socio.entity';
+import { Usuario } from '../../modules/usuarios/entities/usuario.entity';
+import { Role } from '../../modules/auth/entities/role.entity'
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 
@@ -16,7 +17,7 @@ export const dataSourceOptions: DataSourceOptions = {
         password: process.env.DB_PASS,
         host: process.env.DB_HOST,
         port: +process.env.DB_PORT,
-        entities: [Usuario, Socio],
+        entities: [Usuario, Socio, Role],
         ssl: true,
         synchronize: true,
 }
