@@ -1,6 +1,6 @@
 import { BaseEntity } from "../../../common/entity/baseEntity";
 import { Usuario } from "../../../modules/usuarios/entities/usuario.entity";
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 
 @Entity('socios')

@@ -18,8 +18,8 @@ import { AuthModule } from './modules/auth/auth.module';
       transport: {
         host: 'smtp.gmail.com',
         auth: {
-          user: 'hungrytimemailer@gmail.com',
-          pass: 'krjm pift qtqs tvos',
+          user: process.env.MAILER_EMAIL,
+          pass: process.env.MAILER_PASS,
         },
       },
     }),

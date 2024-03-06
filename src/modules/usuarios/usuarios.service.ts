@@ -89,9 +89,7 @@ export class UsuariosService {
       },
       select: ['password', 'id', 'role'],
     });
-
     if (!user) throw new NotFoundException(`User ${email} not found`);
-
     return user;
   }
 
@@ -102,9 +100,7 @@ export class UsuariosService {
         email: email,
       },
     });
-
     if (!user) return null;
-
     return user;
   }
 }

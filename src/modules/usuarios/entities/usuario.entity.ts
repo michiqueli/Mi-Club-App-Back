@@ -3,7 +3,6 @@ import { Role } from "../../../modules/auth/entities/role.entity";
 import { Socio } from "../../../modules/socios/entities/socio.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
-
 @Entity('usuarios')
 export class Usuario extends BaseEntity{
 
