@@ -20,7 +20,7 @@ async function bootstrap() {
   app.enableCors({
     origin: '*', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS',
-    credentials: true, 
+    credentials: false, 
   });
   const config = new DocumentBuilder()
     .setTitle('Admin My Club API')
