@@ -13,7 +13,7 @@ export class Socio extends BaseEntity{
     dni: string
 
     @Column({unique: true})
-    number: number
+    number: string
 
     @Column()
     name: string
