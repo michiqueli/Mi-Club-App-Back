@@ -6,6 +6,7 @@ import { dataSourceOptions } from './config/database/database.config';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
 import { SociosModule } from './modules/socios/socios.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
 
 @Module({
   imports: [
@@ -25,7 +26,8 @@ import { AuthModule } from './modules/auth/auth.module';
     }),
     UsuariosModule,
     SociosModule,
-    AuthModule
+    AuthModule,
+    CloudinaryModule
   ],
   controllers: [],
   providers: [],
