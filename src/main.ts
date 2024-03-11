@@ -18,7 +18,7 @@ async function bootstrap() {
     }),
   );
   app.enableCors({
-    origin: '*',
+    origin: 'https://mi-club-app-front.vercel.app/',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
