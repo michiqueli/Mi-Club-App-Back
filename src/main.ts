@@ -17,6 +17,11 @@ async function bootstrap() {
       transform: true,
     }),
   );
+  app.enableCors({
+    origin: 'https://mi-club-app-front.vercel.app', 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS',
+    credentials: true, 
+  });
   const config = new DocumentBuilder()
     .setTitle('Admin My Club API')
     .setDescription('This is an API for manage a Club')
