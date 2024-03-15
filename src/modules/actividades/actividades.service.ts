@@ -11,7 +11,8 @@ export class ActividadesService {
   private readonly actividadRespository: Repository<Actividad>
   
   async create(createActividadeDto: CreateActividadeDto) {
-    const actividadCreated = await this.actividadRespository.create(createActividadeDto)
+    const actividad = await this.actividadRespository.create(createActividadeDto)
+    const actividadCreated = this.actividadRespository.save(actividad)
     return actividadCreated;
   }
 
