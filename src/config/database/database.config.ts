@@ -3,6 +3,8 @@ import { Socio } from '../../modules/socios/entities/socio.entity';
 import { Usuario } from '../../modules/usuarios/entities/usuario.entity';
 import { Role } from '../../modules/auth/entities/role.entity'
 import { DataSource, DataSourceOptions } from 'typeorm';
+import { Actividad } from 'src/modules/actividades/entities/actividad.entity';
+import { Cuota } from 'src/modules/cuotas/entities/cuota.entity';
 
 
 ConfigModule.forRoot({
@@ -17,7 +19,7 @@ export const dataSourceOptions: DataSourceOptions = {
         password: process.env.POSTGRES_PASSWORD,
         host: process.env.POSTGRES_HOST,
         port: +process.env.DB_PORT,
-        entities: [Usuario, Socio, Role],
+        entities: [Usuario, Socio, Role, Actividad, Cuota],
         ssl: true,
         synchronize: true,
 }

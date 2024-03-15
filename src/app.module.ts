@@ -6,6 +6,8 @@ import { dataSourceOptions } from './config/database/database.config';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
 import { SociosModule } from './modules/socios/socios.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { CuotasModule } from './modules/cuotas/cuotas.module';
+import { ActividadesModule } from './modules/actividades/actividades.module';
 
 @Module({
   imports: [
@@ -18,14 +20,16 @@ import { AuthModule } from './modules/auth/auth.module';
       transport: {
         host: 'smtp.gmail.com',
         auth: {
-          user: 'hungrytimemailer@gmail.com',
+          user: 'peumalimaymailer@gmail.com',
           pass: 'krjm pift qtqs tvos',
         },
       },
     }),
     UsuariosModule,
     SociosModule,
-    AuthModule
+    AuthModule,
+    CuotasModule,
+    ActividadesModule,
   ],
   controllers: [],
   providers: [],
