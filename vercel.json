@@ -1,20 +1,20 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "src/main.ts",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "src/main.ts",
-        "methods": ["GET", "POST", "HEAD", "PUT", "DELETE", "PATCH", "OPTIONS"]
-      },
-      {
-        "src": "/docs/(.*)",
-        "dest": "/docs"
-      }
-    ]
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/main.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/main.ts",
+      "methods": ["GET", "POST", "HEAD", "PUT", "DELETE", "PATCH", "OPTIONS"]
+    },
+    {
+      "src": "/docs/(.*)",
+      "dest": "/docs"
+    }
+  ]
+}
