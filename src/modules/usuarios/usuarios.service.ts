@@ -50,7 +50,7 @@ export class UsuariosService {
   }
 
   async findAll() {
-    return await this.usuarioRepository.find({ relations: ['socio'] });
+    return await this.usuarioRepository.find({ relations: ['socio']})
   }
 
   async findOne(id: string) {
