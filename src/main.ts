@@ -17,7 +17,11 @@ async function bootstrap() {
       transform: true,
     }),
   );
-
+  app.enableCors({
+    origin: '*', 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS',
+    credentials: false, 
+  });
   const config = new DocumentBuilder()
     .setTitle('Admin My Club API')
     .setDescription('This is an API for manage a Club')

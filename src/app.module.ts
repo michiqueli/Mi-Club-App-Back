@@ -8,6 +8,7 @@ import { SociosModule } from './modules/socios/socios.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { CuotasModule } from './modules/cuotas/cuotas.module';
 import { ActividadesModule } from './modules/actividades/actividades.module';
+import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
 
 @Module({
   imports: [
@@ -20,8 +21,8 @@ import { ActividadesModule } from './modules/actividades/actividades.module';
       transport: {
         host: 'smtp.gmail.com',
         auth: {
-          user: 'peumalimaymailer@gmail.com',
-          pass: 'krjm pift qtqs tvos',
+          user: process.env.MAILER_EMAIL,
+          pass: process.env.MAILER_PASS,
         },
       },
     }),
@@ -30,6 +31,7 @@ import { ActividadesModule } from './modules/actividades/actividades.module';
     AuthModule,
     CuotasModule,
     ActividadesModule,
+    CloudinaryModule
   ],
   controllers: [],
   providers: [],
