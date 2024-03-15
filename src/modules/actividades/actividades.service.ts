@@ -24,11 +24,27 @@ export class ActividadesService {
     return await this.actividadRespository.findOne({where: {id}})
   }
 
-  update(id: number, updateActividadeDto: UpdateActividadeDto) {
-    return `This action updates a #${id} actividade`;
+  async update(id: string, updateActividadeDto: UpdateActividadeDto) {
+    const actividad = await this.actividadRespository.findOneByOrFail({id})
+    Object.assign(actividad, updateActividadeDto)
+    await this.actividadRespository.save(actividad)
+    return actividad;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} actividade`;
+  async remove(id: string) {
+    const actividad = await this.actividadRespository.find({
+      where: {id}
+    })
+    await this.actividadRespository.softDelete(id)
+    return `La Actividad ${actividad[0].name} ha sido deshabilitada`;
+  }
+  
+  async restore (id: string){
+    await this.actividadRespository.restore(id)
+    const actividad = await this.actividadRespository.find({
+      where: {id}
+    })
+    return `La Actividad ${actividad[0].name} ha sido Habilitada`
   }
 }
+

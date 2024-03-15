@@ -84,7 +84,7 @@ export class UsuariosService {
     });
     await this.usuarioRepository.softDelete(id);
     this.emailService.offLineEmail(user[0].socio.name, user[0].email);
-    return `el Usuario de ${id} Esta Fuera de Linea`;
+    return `el Usuario de ${user[0].socio.name} ${user[0].socio.last_name} Esta Fuera de Linea`;
   }
 
   async restore(id: string) {
