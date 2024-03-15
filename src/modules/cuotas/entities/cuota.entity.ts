@@ -1,4 +1,4 @@
-import { BaseEntity } from "src/common/entity/baseEntity";
+import { BaseEntity } from "../../../common/entity/baseEntity";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('cuotas')
