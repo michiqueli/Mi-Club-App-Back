@@ -1,9 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters } from '@nestjs/common';
 import { ActividadesService } from './actividades.service';
 import { CreateActividadeDto } from './dto/create-actividade.dto';
 import { UpdateActividadeDto } from './dto/update-actividade.dto';
+import { VERSION } from '../../common/constants';
+import { ApiTags } from '@nestjs/swagger';
+import { AllExceptionFilter } from 'src/common/filters/exception.filter';
 
-@Controller('actividades')
+@ApiTags('Actividades')
+@UseFilters(AllExceptionFilter)
+@Controller(`api/${VERSION}actividades`)
 export class ActividadesController {
   constructor(private readonly actividadesService: ActividadesService) {}
 
@@ -19,7 +24,7 @@ export class ActividadesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.actividadesService.findOne(+id);
+    return this.actividadesService.findOne(id);
   }
 
   @Patch(':id')
