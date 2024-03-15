@@ -1,7 +1,8 @@
+import { Column, Entity, JoinTable, ManyToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { BaseEntity } from "../../../common/entity/baseEntity";
+import { Actividad } from "src/modules/actividades/entities/actividad.entity";
 import { Usuario } from "../../../modules/usuarios/entities/usuario.entity";
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-
+import { Cuota } from "../../../modules/cuotas/entities/cuota.entity"
 
 @Entity('socios')
 export class Socio extends BaseEntity{
@@ -38,4 +39,16 @@ export class Socio extends BaseEntity{
 
     @OneToOne(() => Usuario, (usuario) => usuario.socio)
     usuario: Usuario;
+
+    @ManyToMany(()=>Actividad, {eager:true, cascade:true} )
+    @JoinTable(
+        {name:"socio_actividades"}
+    )
+    actividades: Actividad[];
+
+    @ManyToMany(()=>Cuota, {eager:true, cascade: true} )
+    @JoinTable(
+        {name: "socio_cuotas"}
+    )
+    cuotas: Cuota[];
 }

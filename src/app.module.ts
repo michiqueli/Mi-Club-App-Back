@@ -6,6 +6,8 @@ import { dataSourceOptions } from './config/database/database.config';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
 import { SociosModule } from './modules/socios/socios.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { CuotasModule } from './modules/cuotas/cuotas.module';
+import { ActividadesModule } from './modules/actividades/actividades.module';
 import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
 
 @Module({
@@ -27,6 +29,8 @@ import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
     UsuariosModule,
     SociosModule,
     AuthModule,
+    CuotasModule,
+    ActividadesModule,
     CloudinaryModule
   ],
   controllers: [],

@@ -14,7 +14,7 @@ export class SociosService {
   }
 
   findAll() {
-    return this.socioRepository.find({ relations: ['usuario'] });
+    return this.socioRepository.find({ relations: ['usuario', 'cuotas', 'actividades'] });
   }
 
   findOne(id: number) {
