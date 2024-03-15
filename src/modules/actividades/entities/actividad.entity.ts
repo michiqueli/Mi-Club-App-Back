@@ -1,4 +1,4 @@
-import { BaseEntity } from "src/common/entity/baseEntity";
+import { BaseEntity } from "../../../common/entity/baseEntity";
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
 
 @Entity('actividades')

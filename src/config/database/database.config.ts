@@ -1,10 +1,10 @@
 import { ConfigModule } from '@nestjs/config';
-import { Socio } from '../../modules/socios/entities/socio.entity';
-import { Usuario } from '../../modules/usuarios/entities/usuario.entity';
 import { Role } from '../../modules/auth/entities/role.entity'
+import { Socio } from '../../modules/socios/entities/socio.entity';
+import { Cuota } from '../../modules/cuotas/entities/cuota.entity';
+import { Usuario } from '../../modules/usuarios/entities/usuario.entity';
+import { Actividad } from '../..//modules/actividades/entities/actividad.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
-import { Actividad } from 'src/modules/actividades/entities/actividad.entity';
-import { Cuota } from 'src/modules/cuotas/entities/cuota.entity';
 
 
 ConfigModule.forRoot({
