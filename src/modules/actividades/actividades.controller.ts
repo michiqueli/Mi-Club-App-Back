@@ -8,7 +8,7 @@ import { AllExceptionFilter } from 'src/common/filters/exception.filter';
 
 @ApiTags('Actividades')
 @UseFilters(AllExceptionFilter)
-@Controller(`api/${VERSION}actividades`)
+@Controller(`api/${VERSION}/actividades`)
 export class ActividadesController {
   constructor(private readonly actividadesService: ActividadesService) {}
 
