@@ -1,4 +1,4 @@
-import { IsBoolean, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsNotEmpty, IsNumber, IsString } from "class-validator";
 import { ApiProperty } from "@nestjs/swagger";
 
 export class CreateCuotaDto {
@@ -22,9 +22,4 @@ export class CreateCuotaDto {
     @IsNotEmpty()
     @IsNumber()
     price: number
-
-    @ApiProperty()
-    @IsNotEmpty()
-    @IsBoolean()
-    isPayed: boolean
 }

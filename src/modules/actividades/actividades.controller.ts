@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters, ParseUUIDPipe } from '@nestjs/common';
 import { ActividadesService } from './actividades.service';
 import { CreateActividadeDto } from './dto/create-actividade.dto';
 import { UpdateActividadeDto } from './dto/update-actividade.dto';
@@ -29,11 +29,16 @@ export class ActividadesController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateActividadeDto: UpdateActividadeDto) {
-    return this.actividadesService.update(+id, updateActividadeDto);
+    return this.actividadesService.update(id, updateActividadeDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.actividadesService.remove(+id);
+    return this.actividadesService.remove(id);
+  }
+
+  @Patch('/restore/:id')
+  restore(@Param('id', ParseUUIDPipe) id: string) {
+    return this.actividadesService.restore(id)
   }
 }

@@ -1,24 +1,23 @@
-import { BaseEntity } from "../../../common/entity/baseEntity";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity } from '../../../common/entity/baseEntity';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('cuotas')
 export class Cuota extends BaseEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-    @PrimaryGeneratedColumn('uuid')
-    id: string
+  @Column()
+  name: string;
 
-    @Column()
-    name: string
+  @Column()
+  month: number;
 
-    @Column()
-    month: number
+  @Column()
+  year: number;
 
-    @Column()
-    year: number
+  @Column()
+  price: number;
 
-    @Column()
-    price: number
-
-    @Column()
-    isPayed: boolean
+  @Column()
+  isPayed: boolean;
 }
