@@ -4,7 +4,6 @@ import { UpdateActividadeDto } from "./dto/update-actividade.dto";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Actividad } from "./entities/actividad.entity";
 import { Repository } from "typeorm";
-import { Usuario } from "../usuarios/entities/usuario.entity";
 import { Socio } from "../socios/entities/socio.entity";
 
 @Injectable()
@@ -51,19 +50,5 @@ export class ActividadesService {
       where: { id },
     });
     return `La Actividad ${actividad[0].name} ha sido Habilitada`;
-  }
-
-  async addActividadUsuario(addActividadUsuarioDto) {
-    const socId = addActividadUsuarioDto.socioId;
-    console.log(socId)
-    const activiId = addActividadUsuarioDto.actividadId;
-    console.log(activiId)
-    const socio = await this.socioRepository.findOne({where: {id: socId} });
-    console.log(socio)
-    const actividad = await this.actividadRespository.findOne({where: {id: activiId}});
-    console.log(actividad)
-    Object.assign(socio.actividades, actividad)
-    await this.socioRepository.save(socio)
-    return `La actividad ${actividad.name} ha sido agregada al socio ${socio.name} ${socio.image}`
   }
 }

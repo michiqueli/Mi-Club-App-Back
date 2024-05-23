@@ -103,6 +103,7 @@ export class UsuariosService {
         email: email,
       },
       select: ['password', 'id', 'role'],
+      relations: ["socio"],
     });
     if (!user) throw new NotFoundException(`User ${email} not found`);
     return user;

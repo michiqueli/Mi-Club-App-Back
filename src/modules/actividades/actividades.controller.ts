@@ -5,7 +5,6 @@ import { UpdateActividadeDto } from './dto/update-actividade.dto';
 import { VERSION } from '../../common/constants';
 import { ApiTags } from '@nestjs/swagger';
 import { AllExceptionFilter } from 'src/common/filters/exception.filter';
-import { AddActividadUsuarioDto } from './dto/addActividadUsuario.dto';
 
 @ApiTags('Actividades')
 @UseFilters(AllExceptionFilter)
@@ -42,10 +41,4 @@ export class ActividadesController {
   restore(@Param('id', ParseUUIDPipe) id: string) {
     return this.actividadesService.restore(id)
   }
-
-  @Post('addActividad_usuario/:id')
-  addActividadUsuario(@Body() addActividadUsuarioDto: AddActividadUsuarioDto){
-    return this.actividadesService.addActividadUsuario(addActividadUsuarioDto)
-  }
-
 }

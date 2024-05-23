@@ -37,4 +37,8 @@ export class UsuariosController {
     return this.usuariosService.restore(id);
   }
 
+  @Get("findByEmail/:email")
+  findByEmail(@Param("email") email: string) {
+    return this.usuariosService.findByEmail(email);
+  }
 }
